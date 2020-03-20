@@ -21,4 +21,5 @@ gcloud app deploy
 
 
 # Configuration
-Open the Configuration entity in Data Store and configure the requested stuff: (https://pantheon.corp.google.com/datastore/entities;kind=Configuration)
+The restaurant add has an endpoint '/init' that can be called to force the initialization of the config. Afterwards your can open the 
+Open the Configuration entity in Data Store and configure the requested stuff: [Google Cloud Console -> Data Store](https://console.cloud.google.com/datastore/entities;kind=Configuration)

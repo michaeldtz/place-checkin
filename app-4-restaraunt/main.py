@@ -38,13 +38,12 @@ def root():
 def healthcheck():
     return "service up & running"
 
-@app.route('/init',methods=["POST"])
+@app.route('/init',methods=["GET","POST"])
 def initService():
     init(force=True)
 
     return jsonify({
-        "success" : True,
-        "config"  : CONFIGURATION
+        "success" : True
     })
 
 
