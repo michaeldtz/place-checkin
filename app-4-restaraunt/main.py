@@ -61,7 +61,7 @@ def init(force=False):
 
             configEntity.update({
                 'locationId'    : "Default",
-                'headerIcon'    : "/assets/logo.png",
+                'headerIcon'    : "assets/logo.png",
                 'brandColor'    : "#00FFAA",
                 'linkImpressum' : "",
                 'linkDPInfo'    : ""      
@@ -77,6 +77,39 @@ def getConfiguration():
         "success" : True,
         "config"  : CONFIGURATION
     })
+
+@app.route('/getKPIs',methods=["GET"])
+def getKPIs():
+
+    # Init and read configuration
+    init()
+    locationId = CONFIGURATION["locationId"]
+
+
+
+    query1 = ds_client.query(kind='Guest-Status')
+    query1.add_filter('locationId', '=', locationId)
+    guestsCurrent = list(query1.fetch())
+
+    now = datetime.datetime.now()
+    today = datetime.datetime(now.year, now.month, now.day)
+    query2 = ds_client.query(kind='Guest-Visits')
+    #query2.add_filter('locationId', '=', locationId)
+    query2.add_filter('checkInDate', '>', today)
+    guestsToday = list(query2.fetch())
+
+    guestsTodayInLocation = []
+    for guest in guestsToday:
+        if guest["locationId"] == locationId:
+            guestsTodayInLocation.append(guest)
+
+    return {
+        "success" : True,
+        "guestsCurrent" : guestsCurrent,
+        "guestsCurrentCount" : len(guestsCurrent),
+        "guestsTodayCount" : len(guestsTodayInLocation)
+    }
+
 
 
 @app.route('/checkin',methods=["POST"])

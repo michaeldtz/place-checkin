@@ -20,6 +20,17 @@ $(document).ready(function(){
                 $("#headerIcon").attr("src",data.config.headerIcon);   
             }
         });
+
+        fetch("/getKPIs", {})
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+
+            if(data.success == true){
+                $("#infoGuestCurrent").text(data.guestsCurrentCount);
+                $("#infoGuestToday").text(data.guestsTodayCount);
+            }
+        });
     }
 
     function switchSite(site){
@@ -40,7 +51,6 @@ $(document).ready(function(){
         $(this).addClass("active"); 
     }); 
 
-  
     init();
     
 });

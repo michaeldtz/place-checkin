@@ -12,3 +12,7 @@ license that can be found in the LICENSE file.
 .inactive {
   display: none;
 }
+
+.bg-danger-border{
+  border-color: #dc3545;
+}

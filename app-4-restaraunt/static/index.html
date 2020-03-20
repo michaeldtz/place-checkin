@@ -39,9 +39,32 @@
           <h5>Übersicht Gäste</h5>
         </p>
         <p>
-          ssss
+          <div class="row">
+            <div class="col-8">
+              Anzahl Gäste aktuell
+            </div>
+            <div id="infoGuestCurrent" class="col-2">
+              ...loading...
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              Gesamt Gäste heute
+            </div>
+            <div id="infoGuestToday" class="col-2">
+              ...loading...
+            </div>
+          </div>
+          <!--<div class="row">
+            <div class="col-8">
+              Liste Gäste Ids
+            </div>
+            <div class="col-2">
+              
+            </div>
+          </div>-->
         </p>
-        <a class="btn btn-primary" href="#signup" target="new" role="button">Melden Sie sich an</a>
+       
       </div>
       
       <div id="checkin" class="site inactive">
@@ -49,7 +72,13 @@
           <h5>Gäste Checkin</h5>
         </p>
         <p>
-          
+          Bitte fotografieren Sie den QRCode des Gastes zum Checkin:
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" capture=environment>
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+          <p id="signuperror" class="text-danger"></p>
+          <button type="submit" id="submitSignup" class="btn btn-primary">Checkin</button>
         </p>
       </div>
 
@@ -58,7 +87,13 @@
           <h5>Gäste Checkout</h5>
         </p>
         <p>
-          
+          Bitte fotografieren Sie den QRCode des Gastes zum Checkout:
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" capture=environment>
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+          <p id="signuperror" class="text-danger"></p>
+          <button type="submit" id="submitSignup" class="btn btn-primary">Checkout</button>
         </p>
       </div>
      

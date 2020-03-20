@@ -1,6 +1,7 @@
 runtime: python37
 env_variables:
-  PLACE_CHECKIN_CONFIG_ID: "Bremerhof"
+  PLACE_CHECKIN_CONFIG_ID: "Default"
+service: restaurant
 handlers:
 - url: /static
   static_dir: static

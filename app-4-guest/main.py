@@ -16,6 +16,7 @@ import datetime
 import uuid
 import pyqrcode
 import io 
+import os
 
 from flask import Flask, request, abort, redirect, jsonify, send_file
 
@@ -50,7 +51,7 @@ def init(force=False):
 
             configEntity.update({
                 'locationId'    : "Default",
-                'headerIcon'    : "/assets/logo.png",
+                'headerIcon'    : "assets/logo.png",
                 'brandColor'    : "#00FFAA",
                 'linkImpressum' : "",
                 'linkDPInfo'    : ""      
@@ -105,7 +106,6 @@ def dataload():
             'city': requestData["guest"]["city"],
             'email': requestData["guest"]["email"],
             'phone': requestData["guest"]["phone"],
-            'confirmedCorrectness': requestData["guest"]["confirmedCorrectness"],
             'confirmedDPS': requestData["guest"]["confirmedDPS"],
             'createDate': datetime.datetime.now(),
             'changeDate': datetime.datetime.now()            
